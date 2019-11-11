@@ -1,0 +1,88 @@
+{
+  "Name": "DB1",
+  "ProductId": 24672,
+  "VendorId": 65261,
+  "ReportLength": 33,
+
+  "Messages": [
+    {
+      "Id": "ProtocolVersion",
+      "Value": 1
+    },
+    {
+      "Id": "JumpToBootloader",
+      "Value": 2
+    },
+    {
+      "Id": "SetRgbMode",
+      "Value": 3
+    },
+    {
+      "Id": "SetRgbHsv",
+      "Value": 4
+    },
+    {
+      "Id": "SetRgbHsvNoEeprom",
+      "Value": 5
+    },
+    {
+      "Id": "IncreaseBrightness",
+      "Value": 6
+    },
+    {
+      "Id": "DecreaseBrightness",
+      "Value": 7
+    },
+    {
+      "Id": "GetDynamicKeymap",
+      "Value": 8
+    },
+    {
+      "Id": "SetDynamicKeymap",
+      "Value": 9
+    },
+    {
+      "Id": "GetMuteLedIsEnabled",
+      "Value": 10
+    },
+    {
+      "Id": "SetMuteLedIsEnabled",
+      "Value": 11
+    },
+    {
+      "Id": "SetMacro",
+      "Value": 12
+    },
+    {
+      "Id": "GetMacro",
+      "Value": 13
+    }
+  ],
+
+  "Layout": [
+    {
+      "KeyId": "0",
+      "Row": 0,
+      "Column": 1,
+      "Layer": 0
+    },
+    {
+      "KeyId": "1",
+      "Row": 1,
+      "Column": 1,
+      "Layer": 0
+    },
+    {
+      "KeyId": "2",
+      "Row": 1,
+      "Column": 0,
+      "Layer": 0
+    },
+    {
+      "KeyId": "3",
+      "Row": 0,
+      "Column": 0,
+      "Layer": 0
+    }
+  ]
+}

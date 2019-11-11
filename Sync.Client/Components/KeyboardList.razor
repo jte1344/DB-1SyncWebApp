@@ -1,0 +1,103 @@
+﻿@inject NavigationManager NavigationManager
+
+<style>
+
+    .choice-list-group {
+        display: block;
+        width: 100%;
+        height: 20%;
+        overflow: auto;
+        display: block;
+        padding: 0;
+        margin: 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .choice-list-group-item {
+        display: block;
+        width: calc( 100% - 28px);
+        height: 60px;
+        border-radius: 5px;
+        background-color: lightgray;
+        font-size: 19px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: black;
+        margin-bottom: 10px;
+    }
+
+    .choice-list-group-item > div {
+        display: inline-block;
+        padding-top: 16px;
+    }
+
+    .choice-list-group-item .icon {
+        display: inline-block;
+        padding-left: 12px;
+    }
+
+    .choice-list-group-item .title {
+        display: inline-block;
+        padding-left: 12px;
+    }
+
+    .custom-scrollbar {
+        float: left;
+        overflow-y: scroll;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+        background-color: #F5F5F5;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        border-radius: 4px;
+        background: lightgray;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background: lightblue;
+    }
+</style>
+
+<ul class="choice-list-group  custom-scrollbar">
+    @foreach (var it in List)
+    {
+        <li class="choice-list-group-item" @onclick="@( () => SelectItemHandler(it) )">
+            <div>
+                @if (!string.IsNullOrEmpty(it.Icon))
+                {
+                    <div class="icon">
+                        <img src="@it.Icon" height="28" />
+                    </div>
+                }
+                <div class="title">
+                    @it.Title
+                </div>
+            </div>
+        </li>
+    }
+</ul>
+
+@code {
+
+    [Parameter] public List<KeyboardItem> List { get; set; }
+
+    protected void SelectItemHandler(KeyboardItem it)
+    {
+        if(it.ChoiceAction != null)
+        {
+            it.ChoiceAction(it);
+        }
+        else if( !string.IsNullOrEmpty(it.Slug) )
+        {
+            NavigationManager.NavigateTo(it.Slug);
+        }
+    }
+}

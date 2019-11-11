@@ -1,0 +1,42 @@
+﻿@page "/ledcontrol"
+
+@inject KeyboardService KeyboardService
+
+<h3>LedControl</h3>
+
+<button class="btn btn-primary" @onclick="IncreaseRgb">+ RGB</button>
+
+<button class="btn btn-primary" @onclick="DecreaseRgb">- RGB</button>
+
+@code {
+    byte rgbMode = 0;
+    KeyboardModel keyboard;
+
+    protected override async Task OnInitializedAsync()
+    {
+        keyboard = KeyboardService.CurrentKeyboard;
+    }
+
+    void IncreaseRgb()
+    {
+        rgbMode++;
+        var message = keyboard.Messages.Where(x => x.Id == "SetRgbMode");
+        HidUtilities.Write(keyboard.ProductId, keyboard.VendorId, RgbPacket(message.First().Value), keyboard.ReportLength);
+    }
+
+    void DecreaseRgb()
+    {
+        rgbMode--;
+        var message = keyboard.Messages.Where(x => x.Id == "SetRgbMode");
+        HidUtilities.Write(keyboard.ProductId, keyboard.VendorId, RgbPacket(message.First().Value), keyboard.ReportLength);
+    }
+
+    byte[] RgbPacket(byte id)
+    {
+        byte[] packet = new byte[33];
+        packet[1] = id;
+        packet[2] = rgbMode;
+
+        return packet;
+    }
+}
