@@ -3,40 +3,40 @@
 
 <h1>Nullbits Sync</h1>
 
-Find available keyboards:
+<p>Find available keyboards:</p>
 
 <button class="btn btn-primary" @onclick="LoadKeyboardsAsync">Load Keyboards</button>
 
-Available keyboards:
+<p>Available keyboards:</p>
 
-<div>
-    <KeyboardList List="Keyboards"></KeyboardList>
-</div>
+    <div>
+        <KeyboardList List="Keyboards"></KeyboardList>
+    </div>
 
 
 
-@code {
+    @code {
 
-    public List<KeyboardItem> Keyboards { get; set; } = new List<KeyboardItem>();
+        public List<KeyboardItem> Keyboards { get; set; } = new List<KeyboardItem>();
 
-    async Task LoadKeyboardsAsync()
-    {
-        var keyboardModels = await KeyboardUtilities.GetAvailableKeyboardsAsync();
-
-        foreach(var keyboardModel in keyboardModels)
+        async Task LoadKeyboardsAsync()
         {
-            Keyboards.Add(new KeyboardItem()
+            var keyboardModels = await KeyboardUtilities.GetAvailableKeyboardsAsync();
+
+            foreach (var keyboardModel in keyboardModels)
             {
-                Title = keyboardModel.Name,
-                KeyboardModel = keyboardModel,
-                Icon = "/icons/keyboard.svg",
-                ChoiceAction = SelectKeyboard
-            });
+                Keyboards.Add(new KeyboardItem()
+                {
+                    Title = keyboardModel.Name,
+                    KeyboardModel = keyboardModel,
+                    Icon = "/icons/keyboard.svg",
+                    ChoiceAction = SelectKeyboard
+                });
+            }
+        }
+
+        private void SelectKeyboard(KeyboardItem item)
+        {
+            KeyboardService.CurrentKeyboard = item.KeyboardModel;
         }
     }
-
-    private void SelectKeyboard(KeyboardItem item)
-    {
-        KeyboardService.CurrentKeyboard = item.KeyboardModel;
-    }
-}
