@@ -8,4 +8,8 @@
     <ProjectReference Include="..\Sync.Core\Sync.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
 </Project>

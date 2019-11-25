@@ -1,42 +1,393 @@
 ﻿@page "/"
-@inject KeyboardService KeyboardService
 
-<h1>Nullbits Sync</h1>
+<head>
+    <title>DB1 Pro</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="DB1 Pro: Macro Keyboard & DAC">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../static/css/normalize.css">
+    <link rel="stylesheet" href="../static/css/theme.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-iso.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="twitter:card" content="summary_large_image" />
 
-<p>Find available keyboards:</p>
 
-<button class="btn btn-primary" @onclick="LoadKeyboardsAsync">Load Keyboards</button>
 
-<p>Available keyboards:</p>
 
-    <div>
-        <KeyboardList List="Keyboards"></KeyboardList>
+
+
+    <meta name="twitter:title" content="DB1 Pro: Macro Keyboard & DAC" />
+    <meta name="twitter:description" content="An all-in-one programmable keyboard with integrated volume control and headphone DAC." />
+    <meta name="twitter:image" content="https://nullbits.co/static/img/feature.jpg" />
+    <meta name="twitter:image:alt" content="DB1 Pro in action." />
+    <meta property="og:url" content="https://nullbits.co/db1pro/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="DB1 Pro: Macro Keyboard & DAC" />
+    <meta property="og:description" content="An all-in-one programmable keyboard with integrated volume control and headphone DAC." />
+    <meta property="og:image" content="https://nullbits.co/static/img/feature.jpg" />
+    <meta property="og:image:secure_url" content="https://nullbits.co/static/img/feature.jpg" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/static/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/static/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/static/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/static/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/static/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/static/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/static/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/static/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/static/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/static/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!--
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '333190317591477');
+        fbq('track', 'PageView');
+    </script>
+    -->
+
+
+
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://www.facebook.com/tr?id=333190317591477&ev=PageView&noscript=1" />
+    </noscript>
+</head>
+
+
+
+
+    <header>
+        <div class="hero-icon-wrap">
+            <img alt="Icon" src="../static/img/icon@1x.png"
+                 srcset="../static/img/icon@2x.png 2x, ../static/img/icon@1x.png 1x" />
+        </div>
+        <div class="hero">
+            <div class="container">
+                <div class="l1 line-outer"><div class="line-inner"></div></div>
+                <div class="l2 line-outer"><div class="line-inner"></div></div>
+                <div class="l3 line-outer"><div class="line-inner"></div></div>
+                <div class="l4 line-outer"><div class="line-inner"></div></div>
+            </div>
+            <h1 class="title center"><span>THE </span><br><span class="accent">ULTIMATE</span><br>PC COMPANION</h1>
+        </div>
+
+        <section class="product-detail center">
+            <div class="detail-img-wrap with-video">
+                <span class="img-or-video header">
+                    <img id="headerIMG" alt="DB1 Pro" src="../static/img/hero@1x.png"
+                         srcset="../static/img/hero@2x.png 2x, ../static/img/hero@1x.png 1x" style="position: relative; z-index: 1; display: none;" />
+                </span>
+            </div>
+        </section>
+    </header>
+
+    <section class="product-detail center" style="margin-top: 80px;">
+        <div class="detail-copy">
+            <h1>A macro keyboard like no other</h1>
+            <p style="max-width: 125%">Four fully customizable buttons help you lead the charge both in-game, and out. With the nullbits Sync app, easily build and create macros for gaming and daily use. Set any number of LED colors and modes. The DB1 is truly in a space of its own.</p>
+        </div>
+    </section>
+
+    <section class="product-detail center">
+        <div class="detail-copy">
+            <h1><span>LIVE </span><span class="accent">NOW </span><span>ON INDIEGOGO</span></h1>
+        </div>
+    </section>
+
+    <section class="product-detail center" style="margin-top: 20px;">
+        <div class="bootstrap background-black">
+            <div class="card background-black">
+                <a href="https://igg.me/at/db1pro/"><img src="../static/img/social_card.png" class="card-img-top"></a>
+                <div class="card-body" style="margin-top: 20px">
+                    <a href="https://igg.me/at/db1pro/" class="card-img-top btn btn-primary"><h4 class="card-title accent">DB1 Pro: Programmable Macro Keypad & Headphone DAC</h4></a>
+                    <a href="https://igg.me/at/db1pro/" class="card-img-top btn btn-primary">indiegogo.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-detail right" style="margin-top: 66px;">
+        <div class="inline-header" style="width: 302px;">
+            <h1>First in its class</h1>
+        </div>
+        <div class="detail-img-wrap" style="margin-left: 0px;">
+            <div class="video-container">
+                <iframe id="ytplayer" type="text/html" width="720" height="405" src="https://www.youtube.com/embed/V7I7Dd1UsgE?controls=0&disablekb=1&modestbranding=1" frameborder="0" fs="1" allowfullscreen></iframe>
+                Introducing the DB1 Pro, the first macropad of its kind.
+            </div>
+        </div>
+        <div class="detail-copy">
+            <div class="copy-header">
+                <h1>First in its class</h1>
+            </div>
+            <p>Three engineers in Boulder, Colorado couldn't find the hardware that met their rigorous standards. So they went and built it themselves.</p>
+        </div>
+    </section>
+
+    <section class="product-detail" style="margin-top: 50px;">
+        <div class="inline-header" style="width: 302px;">
+            <h1>Designed for gamers and power users</h1>
+        </div>
+        <div class="detail-copy">
+            <div class="copy-header">
+                <h1>Designed for gamers and power users</h1>
+            </div>
+            <p>The DB1 Pro is a knockout combo unlike anything that's come before it. Four infinitely programmable macro keys satisfy even the most demanding power users. A hand-knurled aluminum volume knob pairs perfectly with a precision output, low-noise stereo DAC. Custom RGB LED lighting is the (beautiful) cherry on top.</p>
+        </div>
+
+        <div class="detail-img-wrap with-video">
+            <span class="img-or-video">
+                <div class="cf">
+                    <img class="bottom" alt="Vertical" src="../static/img/vert2@1x.png"
+                         srcset="../static/img/vert2@2x.png 2x, ../static/img/vert2@1x.png 1x" />
+                    <img class="top" alt="Vertical" src="../static/img/vert1@1x.png"
+                         srcset="../static/img/vert1@2x.png 2x, ../static/img/vert1@1x.png 1x" />
+                </div>
+            </span>
+        </div>
+    </section>
+
+    <section class="product-detail right" style="margin-top: 66px;">
+        <div class="inline-header" style="width: 302px;">
+            <h1>Beautiful hardware</h1>
+        </div>
+        <div class="detail-img-wrap with-video">
+            <span class="img-or-video">
+                <img alt="Hardware" src="../static/img/hardware@1x.png"
+                     srcset="../static/img/hardware@2x.png 2x, ../static/img/hardware@1x.png 1x" />
+            </span>
+        </div>
+        <div class="detail-copy">
+            <div class="copy-header">
+                <h1>Beautiful hardware</h1>
+            </div>
+            <p>The DB1 Pro is built with the highest-quality materials and hand-assembled here in the USA. Every aspect of the DB1 has been throughly considered, from the machined aluminum case, to the USB C and 3.5mm audio connectors. We use only the highest-quality electronic components. Our PCBs were painstakingly designed to minimize noise, especially within the precision audio section.</p>
+        </div>
+    </section>
+
+    <section class="product-detail" style="margin-top: 80px;">
+        <div class="inline-header" style="width: 302px;">
+            <h1>Intelligent app control</h1>
+        </div>
+        <div class="detail-copy">
+            <div class="copy-header">
+                <h1>Intelligent app control</h1>
+            </div>
+            <p>The DB1 Pro is the first open-source, QMK compatible keyboard peripheral to support PC app control and configuration, thanks to the nullbits Sync app. Sync can be used to precisely set LED colors and modes, assign keybinds, build complex macros, and update the DB1 firmware.</p>
+        </div>
+
+        <div class="detail-img-wrap with-video">
+            <span class="img-or-video">
+                <img alt="Sync Icon" src="../static/img/sync@1x.png"
+                     srcset="../static/img/sync@2x.png 2x, ../static/img/sync@1x.png 1x" />
+            </span>
+        </div>
+    </section>
+
+    <section class="product-detail center" style="margin-top: 100px;">
+        <div class="detail-copy">
+            <h1>Pro audio built in</h1>
+            <div class="smart-labels bright">
+                <div class="smart-item">
+                    <i class="fa fa-icon fa-3x fa-headphones"></i><br>
+                    <div>16 Bit Digital to Analog Converter</div>
+                </div>
+                <div class="smart-item">
+                    <i class="fa fa-icon fa-3x fa-circle-o-notch"></i><br>
+                    <div>Volume Control</div>
+                </div>
+                <div class="smart-item">
+                    <i class="fa fa-icon fa-3x fa-sliders"></i><br>
+                    <div>Flat Frequency Response</div>
+                </div>
+            </div>
+            <p style="max-width: 125%">
+                The DB1 Pro's audio output is meticulously designed and tuned for gamers and media pros. The internal 16-bit analog to digital converter ensures clean, accurate sound reproduction. The audio circuitry is optimized for an extremely flat frequency response, leaving no detail muffled or muddied. An exceptional analog output section ensures immunity from noise and interference.
+                <br><br>
+                Whether you're listening to Chopin, editing video, or sneaking up on a multiplayer opponent, the DB1 Pro's sound output is guaranteed to be crystal clear, rich, and distortion-free.
+            </p>
+        </div>
+    </section>
+
+    <h1 style="margin-top: 120px; text-align: center;">Infinitely configurable</h1>
+    <section class="product-detail">
+        <div class="detail-copy">
+            <p>Each of the DB1 Pro's 8 built-in LEDs supports over 4,000 unique colors and brightness levels, all fully customizable using the nullbits Sync app. And that's nothing compared to the DB1 Pro's macro engine. With four programmable keys, each providing more than 10 million distinct key combinations, the possibilities are literally endless. The DB1 is supported by the nullbits Sync Python API, allowing for limitless cross-platform customization and extension.</p>
+        </div>
+        <div class="detail-img-wrap">
+            <br>
+            <div class="circle">
+                <strong></strong>
+            </div>
+            <h3>Possibilities</h3>
+        </div>
+    </section>
+
+    <section class="product-detail center" style="margin-top: 80px">
+        <div class="bootstrap background-black">
+            <div class="card background-black">
+                <div class="card-body" style="margin-top: 20px">
+                    <h2 class="card-title accent"><b>BE THE FIRST</b></h2>
+                    <p class="card-text">Join our email list to get 20% off your DB1 Pro on Indiegogo. Plus, earn access to exclusive deals, unlock access to our referral program, and more.</p>
+                    <form class="form" id="InlineEmailForm2" target="dummyframe">
+                        <div class="form-row">
+                            <div class="col">
+                                <input type="hidden" id="ABConfigID" name="ab_config_id" value="1" />
+                                <input type="hidden" id="EventSource" name="event_source" value="https://nullbits.co/db1pro/" />
+                                <label class="sr-only" for="inlineFormInputGroupUsername2">Email Address</label>
+                                <input class="form-control" id="InlineEmailAddress2" name="email_address" type="email" placeholder="Email Address" style="margin-right:10px" required />
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-accent" onclick="sendInlineForm(2)">Submit</button>
+                            </div>
+                        </div>
+                        <p class="help-block accent" id="InlineEmailError2"></p>
+                    </form>
+                    <p><sub><i> We will never share or sell your information.</i></sub></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="well" style="margin-top: 100px;">
+        <section class="product-detail wide">
+            <div class="detail-copy">
+                <h2>Technology</h2>
+                <p></p>
+                <div class="tech-showcase">
+                    <div class="tech-item">
+                        <div>
+                            <i class="fa white fa-3x fa-cubes"></i>
+                        </div>
+                        <div>Programmable Macro Keys</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>
+                            <i class="fa white fa-3x fa-plug"></i>
+                        </div>
+                        <div>Open-Source QMK Firmware</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>
+                            <i class="fa white fa-3x fa-volume-up"></i>
+                        </div>
+                        <div>USB DAC & Headphone Amplifier</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>
+                            <i class="fa white fa-3x fa-gears"></i>
+                        </div>
+                        <div>Sync App Configuration</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>
+                            <i class="fa white fa-3x fa-lightbulb-o"></i>
+                        </div>
+                        <div>Constant Current RGB LEDs</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>
+                            <i class="fa white fa-3x fa-usb"></i>
+                        </div>
+                        <div>Future-proof USB C Connection</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>
+                            <i class="fa white fa-3x fa-filter"></i>
+                        </div>
+                        <div>CNC Machined Enclosure</div>
+                    </div>
+                    <div class="tech-item">
+                        <div>
+                            <i class="fa white fa-3x fa-microphone-slash"></i>
+                        </div>
+                        <div>Mute/Deafen Indicators</div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
+    <h1 style="margin-top: 120px; text-align: center;">Interested?</h1>
+    <section class="product-detail">
+        <div class="footer">
+            <img id="footerIMG" alt="DB1 Pro" src="../static/img/hero@1x_alt1.png"
+                 srcset="../static/img/hero@2x_alt1.png 2x, ../static/img/hero@1x_alt1.png 1x" style="display: none;" />
+        </div>
+    </section>
+
+    <section class="product-detail center">
+        <div class="detail-copy">
+            <h1><span>LIVE </span><span class="accent">NOW </span><span>ON INDIEGOGO</span></h1>
+        </div>
+    </section>
+
+    <section class="product-detail center" style="margin-top: 20px; margin-bottom: 20px">
+        <div class="bootstrap background-black">
+            <div class="card background-black">
+                <a href="https://igg.me/at/db1pro/"><img src="../static/img/social_card.png" class="card-img-top"></a>
+                <div class="card-body" style="margin-top: 20px">
+                    <a href="https://igg.me/at/db1pro/" class="card-img-top tn btn-primary"><h4 class="card-title accent">DB1 Pro: Programmable Macro Keypad & Headphone DAC</h4></a>
+                    <a href="https://igg.me/at/db1pro/" class="card-img-top btn btn-primary">indiegogo.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Modal -->
+    <div id="email-list-template" class="bootstrap"></div>
+
+    <footer>
+        <div class="footer-wrap">
+            &copy nullbits 2019
+        </div>
+    </footer>
+
+<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe" style="visibility: hidden;"></iframe>
 
 
-    @code {
 
-        public List<KeyboardItem> Keyboards { get; set; } = new List<KeyboardItem>();
 
-        async Task LoadKeyboardsAsync()
+
+
+@code {
+
+
+    public List<KeyboardItem> Keyboards { get; set; } = new List<KeyboardItem>();
+
+    async Task LoadKeyboardsAsync()
+    {
+        var keyboardModels = await KeyboardUtilities.GetAvailableKeyboardsAsync();
+
+        foreach (var keyboardModel in keyboardModels)
         {
-            var keyboardModels = await KeyboardUtilities.GetAvailableKeyboardsAsync();
-
-            foreach (var keyboardModel in keyboardModels)
+            Keyboards.Add(new KeyboardItem()
             {
-                Keyboards.Add(new KeyboardItem()
-                {
-                    Title = keyboardModel.Name,
-                    KeyboardModel = keyboardModel,
-                    Icon = "/icons/keyboard.svg",
-                    ChoiceAction = SelectKeyboard
-                });
-            }
-        }
-
-        private void SelectKeyboard(KeyboardItem item)
-        {
-            KeyboardService.CurrentKeyboard = item.KeyboardModel;
+                Title = keyboardModel.Name,
+                KeyboardModel = keyboardModel,
+                Icon = "/icons/keyboard.svg",
+                ChoiceAction = SelectKeyboard
+            });
         }
     }
+
+    private void SelectKeyboard(KeyboardItem item)
+    {
+        KeyboardService.CurrentKeyboard = item.KeyboardModel;
+    }
+}
