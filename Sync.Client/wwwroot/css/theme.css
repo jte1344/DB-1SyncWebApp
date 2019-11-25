@@ -629,6 +629,7 @@ footer {
     left: 3px;
     width: calc(100% - 6px);
     height: calc(100% - 6px);
+    z-index: -1;
 }
 
 .container {
