@@ -117,7 +117,7 @@ app {
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 950px) {
     app {
         flex-direction: row;
     }
@@ -149,4 +149,9 @@ app {
         /* Never collapse the sidebar for wide screens */
         display: block;
     }
+}
+
+.select-menu {
+    max-height: 200px;
+    overflow-y: auto;
 }

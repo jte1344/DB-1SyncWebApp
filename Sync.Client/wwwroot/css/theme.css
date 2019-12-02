@@ -227,10 +227,7 @@ img.show-and-slide-in {
 }
 
 @media (max-width: 767px) {
-    .container {
-        right: 204px;
-        top: -140px;
-    }
+
 
     .title {
         font-size: 75px;
@@ -632,13 +629,6 @@ footer {
     z-index: -1;
 }
 
-.container {
-    position: absolute;
-    right: 320px;
-    top: -210px;
-    z-index: 1;
-}
-
 .l1 {
     position: absolute;
     width: 950px;
@@ -670,10 +660,6 @@ footer {
 }
 
 @media (max-width: 767px) {
-    .container {
-        right: 105px;
-        top: -120px;
-    }
 
     .l1 {
         width: 460px;
@@ -701,3 +687,4 @@ footer {
         left: 99px;
     }
 }
+
