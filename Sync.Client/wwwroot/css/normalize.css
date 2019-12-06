@@ -174,3 +174,7 @@ template {
 [hidden] {
     display: none;
 }
+
+.full-spectrum .sp-palette {
+    max-width: 200px;
+}

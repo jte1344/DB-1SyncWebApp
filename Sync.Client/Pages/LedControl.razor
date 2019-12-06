@@ -2,11 +2,38 @@
 
 @inject KeyboardService KeyboardService
 
-<h3>LedControl</h3>
+<h3>Led Control</h3>
 
-<button class="btn btn-primary" @onclick="IncreaseRgb">+ RGB</button>
+<div class="row">
+    <div class="col-12 mt-4">
+        <h6>RGB MODE</h6>
+        <button class="btn btn-primary" @onclick="IncreaseRgb">+ RGB</button>
+        <button class="btn btn-primary" @onclick="DecreaseRgb">- RGB</button>
+    </div>
+    <div class="col-12 mt-4">
+        <div class="row">
+            <div class="col-6">
+                <div class="row">
+                    <p class="m-2">Brightness:</p>
+                    <button class="btn btn-primary m-2">+</button>
+                    <button class="btn btn-primary m-2">-</button>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <p>Mute/Deafen Indicators</p>
+                    <input type="checkbox" class="form-check-input" id="muteIndicator">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<button class="btn btn-primary" @onclick="DecreaseRgb">- RGB</button>
+<h3>Custom Colors</h3>
+<div class="row">
+    <input type='color' class="ml-3" style="width: 100px; height: 40.5px;" id="full" />
+    <button class="btn btn-primary mx-2">SET</button>
+</div>
 
 @code {
     byte rgbMode = 0;

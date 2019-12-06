@@ -7,6 +7,7 @@
  * @licence MIT
  * @preserve
  */
+
 !function (i) {
     if ("function" == typeof define && define.amd)
         define(["jquery"], i);
